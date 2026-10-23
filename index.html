@@ -39,6 +39,17 @@
       outline-offset: 3px;
     }
 
+    /* Canvas hạt nổi */
+    #bgParticles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    main, .footer { position: relative; z-index: 1; }
+
     .container { width: min(1080px, 92%); margin: 0 auto; }
     .section { padding: 80px 0; }
 
@@ -48,9 +59,10 @@
       text-align: center;
     }
 
+    /* Label pill nổi */
     .label {
       display: inline-block;
-      padding: 4px 10px;
+      padding: 5px 12px;
       border: 1px solid var(--line);
       border-radius: 100px;
       background: var(--bg-soft);
@@ -58,6 +70,13 @@
       font-size: 12px;
       font-weight: 600;
       letter-spacing: .5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+      animation: floaty 5s ease-in-out infinite;
+    }
+
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-5px); }
     }
 
     h1, h2, h3 { line-height: 1.25; letter-spacing: -.3px; font-weight: 700; }
@@ -80,12 +99,12 @@
     .header {
       position: sticky; top: 0; z-index: 100;
       border-bottom: 1px solid var(--line);
-      background: rgba(11,14,20,.9);
+      background: rgba(11,14,20,.85);
       backdrop-filter: blur(10px);
     }
 
     .navbar {
-      min-height: 68px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -110,18 +129,34 @@
       font-weight: 800;
     }
 
+    /* Nav = pill bay lơ lửng */
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 10px;
     }
 
     .nav-links a {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      background: var(--bg-soft);
       color: #c3ccdb;
       font-size: 13px;
+      font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0,0,0,.25);
+      transition: transform .22s ease, border-color .22s ease,
+                  background .22s ease, color .22s ease, box-shadow .22s ease;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--card);
+      box-shadow: 0 8px 20px rgba(106,169,255,.22);
+    }
 
     .menu-toggle {
       display: none;
@@ -147,19 +182,13 @@
       transition: background .15s, border-color .15s;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #0b0e14;
-    }
-
+    .btn-primary { background: var(--accent); color: #0b0e14; }
     .btn-primary:hover { background: #8bbcff; }
-
     .btn-outline {
       color: var(--text);
       border-color: var(--line);
       background: var(--bg-soft);
     }
-
     .btn-outline:hover { border-color: var(--accent); }
 
     /* Hero */
@@ -175,6 +204,20 @@
     .hero h1 {
       margin: 18px 0 18px;
       font-size: clamp(32px, 4.8vw, 48px);
+      min-height: 2.5em;
+    }
+
+    /* Typewriter cursor */
+    .type-line.typing::after {
+      content: "|";
+      margin-left: 2px;
+      color: var(--accent);
+      font-weight: 400;
+      animation: blink 0.9s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
     }
 
     .hero-description {
@@ -231,9 +274,7 @@
       text-align: center;
     }
 
-    .preview-body {
-      padding: 26px 22px;
-    }
+    .preview-body { padding: 26px 22px; }
 
     .preview-body h3 {
       margin: 12px 0 8px;
@@ -356,9 +397,7 @@
       background: var(--card);
     }
 
-    .price-card.featured {
-      border-color: var(--accent);
-    }
+    .price-card.featured { border-color: var(--accent); }
 
     .price-tag {
       align-self: flex-start;
@@ -482,13 +521,9 @@
 
     .mock-lines span:first-child { background: var(--accent); }
 
-    .project-info {
-      padding: 16px;
-    }
+    .project-info { padding: 16px; }
 
-    .project-info h3 {
-      font-size: 15px;
-    }
+    .project-info h3 { font-size: 15px; }
 
     .project-info p {
       margin-top: 6px;
@@ -641,12 +676,15 @@
       html { scroll-behavior: auto; }
       *, *::before, *::after {
         transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
       }
       .reveal { opacity: 1; transform: none; }
+      .label { animation: none; }
     }
 
     @media (max-width: 900px) {
-      .nav-links { gap: 14px; }
+      .nav-links { gap: 8px; }
+      .nav-links a { padding: 7px 13px; font-size: 12px; }
       .hero-grid { gap: 28px; }
       .services-grid, .pricing-grid, .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -656,7 +694,7 @@
 
     @media (max-width: 680px) {
       .section { padding: 56px 0; }
-      .navbar { min-height: 60px; }
+      .navbar { min-height: 62px; }
       .menu-toggle { display: grid; place-items: center; }
 
       .nav-links {
@@ -666,8 +704,8 @@
         display: none;
         flex-direction: column;
         align-items: stretch;
-        gap: 0;
-        padding: 8px 4%;
+        gap: 8px;
+        padding: 14px 4% 18px;
         border-bottom: 1px solid var(--line);
         background: var(--bg);
       }
@@ -675,12 +713,10 @@
       .nav-links.open { display: flex; }
 
       .nav-links a {
-        padding: 12px 6px;
-        border-bottom: 1px solid var(--line);
+        padding: 10px 16px;
         font-size: 14px;
+        text-align: center;
       }
-
-      .nav-links a:last-child { border-bottom: none; }
 
       .hero { padding: 46px 0 40px; }
       .hero-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -733,9 +769,9 @@
         <div>
           <span class="label">Nhận làm website</span>
 
-          <h1>
-            Website theo yêu cầu,<br>
-            <span class="accent">giá từ 150k.</span>
+          <h1 aria-label="Website theo yêu cầu, giá từ 150k.">
+            <span class="type-line type-1" data-text="Website theo yêu cầu,"></span><br>
+            <span class="type-line type-2 accent" data-text="giá từ 150k."></span>
           </h1>
 
           <p class="hero-description">
@@ -1101,9 +1137,7 @@
   <button class="back-top" id="backTop" type="button" aria-label="Lên đầu trang">↑</button>
 
   <script>
-    const CONFIG = {
-      zaloPhone: "0325687418"
-    };
+    const CONFIG = { zaloPhone: "0325687418" };
 
     function setupZaloLinks() {
       const phone = String(CONFIG.zaloPhone).replace(/\D/g, "");
@@ -1147,11 +1181,9 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     const backTop = document.getElementById("backTop");
-
     window.addEventListener("scroll", () => {
       backTop.classList.toggle("visible", window.scrollY > 450);
     }, { passive: true });
-
     backTop.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
@@ -1173,6 +1205,114 @@
       revealEls.forEach((el) => el.classList.add("show"));
     }
 
+    /* ---------- Typewriter tiêu đề: gõ → dừng → xoá → lặp ---------- */
+    const l1 = document.querySelector(".type-1");
+    const l2 = document.querySelector(".type-2");
+    const t1 = l1.dataset.text;
+    const t2 = l2.dataset.text;
+    const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    async function typeLoop() {
+      while (true) {
+        l1.textContent = "";
+        l2.textContent = "";
+        l1.classList.remove("typing");
+        l2.classList.remove("typing");
+        await wait(400);
+
+        l1.classList.add("typing");
+        for (let i = 1; i <= t1.length; i++) {
+          l1.textContent = t1.slice(0, i);
+          await wait(65);
+        }
+        l1.classList.remove("typing");
+        l2.classList.add("typing");
+        await wait(200);
+
+        for (let i = 1; i <= t2.length; i++) {
+          l2.textContent = t2.slice(0, i);
+          await wait(65);
+        }
+        await wait(2200);
+
+        for (let i = t2.length; i >= 0; i--) {
+          l2.textContent = t2.slice(0, i);
+          await wait(30);
+        }
+        l2.classList.remove("typing");
+        l1.classList.add("typing");
+        await wait(150);
+
+        for (let i = t1.length; i >= 0; i--) {
+          l1.textContent = t1.slice(0, i);
+          await wait(30);
+        }
+        l1.classList.remove("typing");
+        await wait(700);
+      }
+    }
+
+    if (reduceMotion) {
+      l1.textContent = t1;
+      l2.textContent = t2;
+    } else {
+      typeLoop();
+    }
+
+    /* ---------- Hạt nổi thay cho DNA ---------- */
+    function initParticles() {
+      if (reduceMotion) return;
+
+      const canvas = document.createElement("canvas");
+      canvas.id = "bgParticles";
+      document.body.insertBefore(canvas, document.body.firstChild);
+
+      const ctx = canvas.getContext("2d");
+      let w, h;
+      const particles = [];
+      const COUNT = 55;
+
+      function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener("resize", resize);
+
+      for (let i = 0; i < COUNT; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          r: Math.random() * 1.5 + 0.4,
+          vy: Math.random() * 0.25 + 0.05,
+          vx: (Math.random() - 0.5) * 0.12,
+          alpha: Math.random() * 0.35 + 0.1
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, w, h);
+        for (const p of particles) {
+          p.y -= p.vy;
+          p.x += p.vx;
+
+          if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+          if (p.x < -10) p.x = w + 10;
+          if (p.x > w + 10) p.x = -10;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = "rgba(106,169,255," + p.alpha + ")";
+          ctx.fill();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    }
+
+    initParticles();
+
+    /* ---------- Copy mẫu tin nhắn ---------- */
     const sampleMessage =
 `Chào HQL Web Studio,
 
