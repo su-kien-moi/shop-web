@@ -1,3 +1,6 @@
+<!-- ============================================= -->
+<!-- FILE 1/4: index.html -->
+<!-- ============================================= -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -20,7 +23,6 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
     body {
@@ -39,7 +41,6 @@
       outline-offset: 3px;
     }
 
-    /* Canvas hạt nổi */
     #bgParticles {
       position: fixed;
       inset: 0;
@@ -59,7 +60,6 @@
       text-align: center;
     }
 
-    /* Label pill nổi */
     .label {
       display: inline-block;
       padding: 5px 12px;
@@ -80,11 +80,7 @@
     }
 
     h1, h2, h3 { line-height: 1.25; letter-spacing: -.3px; font-weight: 700; }
-
-    h2 {
-      margin-top: 14px;
-      font-size: clamp(26px, 4vw, 36px);
-    }
+    h2 { margin-top: 14px; font-size: clamp(26px, 4vw, 36px); }
 
     .section-heading p {
       margin-top: 12px;
@@ -95,7 +91,6 @@
     .accent { color: var(--accent); }
     .muted { color: var(--muted); }
 
-    /* Header */
     .header {
       position: sticky; top: 0; z-index: 100;
       border-bottom: 1px solid var(--line);
@@ -129,7 +124,6 @@
       font-weight: 800;
     }
 
-    /* Nav = pill bay lơ lửng */
     .nav-links {
       display: flex;
       align-items: center;
@@ -168,7 +162,6 @@
       font-size: 18px;
     }
 
-    /* Buttons */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -191,7 +184,6 @@
     }
     .btn-outline:hover { border-color: var(--accent); }
 
-    /* Hero */
     .hero { padding: 70px 0 60px; }
 
     .hero-grid {
@@ -207,7 +199,6 @@
       min-height: 2.5em;
     }
 
-    /* Typewriter cursor */
     .type-line.typing::after {
       content: "|";
       margin-left: 2px;
@@ -216,9 +207,7 @@
       animation: blink 0.9s step-end infinite;
     }
 
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
+    @keyframes blink { 50% { opacity: 0; } }
 
     .hero-description {
       max-width: 520px;
@@ -239,7 +228,6 @@
       color: var(--muted);
     }
 
-    /* Browser preview */
     .browser {
       border: 1px solid var(--line);
       border-radius: var(--radius);
@@ -257,11 +245,7 @@
       background: var(--card);
     }
 
-    .dot {
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: #3a4353;
-    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #3a4353; }
 
     .browser-address {
       flex: 1;
@@ -276,15 +260,8 @@
 
     .preview-body { padding: 26px 22px; }
 
-    .preview-body h3 {
-      margin: 12px 0 8px;
-      font-size: 22px;
-    }
-
-    .preview-body p {
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .preview-body h3 { margin: 12px 0 8px; font-size: 22px; }
+    .preview-body p { color: var(--muted); font-size: 13px; }
 
     .preview-features {
       display: grid;
@@ -300,18 +277,9 @@
       background: var(--card);
     }
 
-    .preview-features strong {
-      display: block;
-      color: var(--accent);
-      font-size: 13px;
-    }
+    .preview-features strong { display: block; color: var(--accent); font-size: 13px; }
+    .preview-features span { color: var(--muted); font-size: 11px; }
 
-    .preview-features span {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    /* Services */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -325,15 +293,8 @@
       background: var(--card);
     }
 
-    .service-card h3 {
-      margin-bottom: 10px;
-      font-size: 17px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
+    .service-card h3 { margin-bottom: 10px; font-size: 17px; }
+    .service-card p { color: var(--muted); font-size: 13px; }
 
     .service-card ul {
       margin-top: 14px;
@@ -350,7 +311,6 @@
 
     .service-card li:first-child { border-top: none; }
 
-    /* Process */
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -364,23 +324,10 @@
       background: var(--card);
     }
 
-    .process-number {
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-    }
+    .process-number { color: var(--accent); font-size: 12px; font-weight: 700; }
+    .process-card h3 { margin: 10px 0 6px; font-size: 15px; }
+    .process-card p { color: var(--muted); font-size: 13px; }
 
-    .process-card h3 {
-      margin: 10px 0 6px;
-      font-size: 15px;
-    }
-
-    .process-card p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* Pricing */
     .pricing-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -414,10 +361,7 @@
       color: var(--accent);
     }
 
-    .price-card h3 {
-      margin-top: 12px;
-      font-size: 17px;
-    }
+    .price-card h3 { margin-top: 12px; font-size: 17px; }
 
     .price {
       margin: 12px 0 4px;
@@ -456,10 +400,7 @@
       font-weight: 700;
     }
 
-    .price-card .btn {
-      width: 100%;
-      margin-top: auto;
-    }
+    .price-card .btn { width: 100%; margin-top: auto; }
 
     .pricing-note {
       max-width: 720px;
@@ -469,7 +410,6 @@
       font-size: 12px;
     }
 
-    /* Portfolio */
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -501,10 +441,7 @@
       letter-spacing: 1px;
     }
 
-    .project-art h3 {
-      max-width: 240px;
-      font-size: 20px;
-    }
+    .project-art h3 { max-width: 240px; font-size: 20px; }
 
     .mock-lines {
       display: flex;
@@ -522,14 +459,8 @@
     .mock-lines span:first-child { background: var(--accent); }
 
     .project-info { padding: 16px; }
-
     .project-info h3 { font-size: 15px; }
-
-    .project-info p {
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 12px;
-    }
+    .project-info p { margin-top: 6px; color: var(--muted); font-size: 12px; }
 
     .demo-label {
       display: inline-block;
@@ -538,7 +469,6 @@
       font-size: 11px;
     }
 
-    /* FAQ */
     .faq-list {
       max-width: 720px;
       display: grid;
@@ -581,7 +511,6 @@
       font-size: 13px;
     }
 
-    /* Contact */
     .contact-panel {
       padding: 44px 22px;
       border: 1px solid var(--line);
@@ -590,10 +519,7 @@
       text-align: center;
     }
 
-    .contact-panel h2 {
-      max-width: 620px;
-      margin: 14px auto;
-    }
+    .contact-panel h2 { max-width: 620px; margin: 14px auto; }
 
     .contact-panel p {
       max-width: 540px;
@@ -615,7 +541,6 @@
       font-size: 12px !important;
     }
 
-    /* Footer */
     .footer {
       margin-top: 60px;
       padding: 26px 0;
@@ -629,20 +554,19 @@
       gap: 20px;
     }
 
-    .footer p {
-      color: var(--muted);
-      font-size: 12px;
-    }
+    .footer p { color: var(-- }
 
-    .footer-links {
+muted); font-size: 12px; }
+
+    .footer   -links {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: @ wrap;
       gap: 14px;
       color: var(--muted);
-      font-size: 12px;
+      font-sizemedia: 12px;
     }
 
-    .footer-links a:hover { color: var(--accent); }
+    ( .footer-links a:hover { color: var(--preaccent); }
 
     .back-top {
       position: fixed;
@@ -667,12 +591,7 @@
       transition: opacity .5s ease, transform .5s ease;
     }
 
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
+    .reveal.show { opacity: 1; transform: translateY(0);fers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
         transition-duration: .01ms !important;
@@ -711,12 +630,7 @@
       }
 
       .nav-links.open { display: flex; }
-
-      .nav-links a {
-        padding: 10px 16px;
-        font-size: 14px;
-        text-align: center;
-      }
+      .nav-links a { padding: 10px 16px; font-size: 14px; text-align: center; }
 
       .hero { padding: 46px 0 40px; }
       .hero-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -756,8 +670,9 @@
       <nav class="nav-links" id="navLinks" aria-label="Điều hướng chính">
         <a href="#services">Dịch vụ</a>
         <a href="#pricing">Bảng giá</a>
-        <a href="#portfolio">Mẫu</a>
+        <a href="san-pham.html">Sản phẩm</a>
         <a href="#faq">Câu hỏi</a>
+        <a href="about.html">Giới thiệu</a>
         <a href="#contact">Liên hệ</a>
       </nav>
     </div>
@@ -789,9 +704,7 @@
             </a>
           </div>
 
-          <p class="hero-note">
-            Trao đổi trước — báo giá trước — làm sau.
-          </p>
+          <p class="hero-note">Trao đổi trước — báo giá trước — làm sau.</p>
         </div>
 
         <div class="browser" aria-hidden="true">
@@ -1128,7 +1041,8 @@
       <div class="footer-links">
         <a href="#services">Dịch vụ</a>
         <a href="#pricing">Bảng giá</a>
-        <a href="#portfolio">Mẫu</a>
+        <a href="san-pham.html">Sản phẩm</a>
+        <a href="about.html">Giới thiệu</a>
         <a href="#contact">Liên hệ</a>
       </div>
     </div>
@@ -1205,7 +1119,6 @@
       revealEls.forEach((el) => el.classList.add("show"));
     }
 
-    /* ---------- Typewriter tiêu đề: gõ → dừng → xoá → lặp ---------- */
     const l1 = document.querySelector(".type-1");
     const l2 = document.querySelector(".type-2");
     const t1 = l1.dataset.text;
@@ -1259,7 +1172,6 @@
       typeLoop();
     }
 
-    /* ---------- Hạt nổi thay cho DNA ---------- */
     function initParticles() {
       if (reduceMotion) return;
 
@@ -1295,7 +1207,6 @@
         for (const p of particles) {
           p.y -= p.vy;
           p.x += p.vx;
-
           if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
           if (p.x < -10) p.x = w + 10;
           if (p.x > w + 10) p.x = -10;
@@ -1312,7 +1223,6 @@
 
     initParticles();
 
-    /* ---------- Copy mẫu tin nhắn ---------- */
     const sampleMessage =
 `Chào HQL Web Studio,
 
